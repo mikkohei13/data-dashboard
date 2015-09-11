@@ -21,7 +21,7 @@
         		left: -150px;
         	width: 600px;
         	height: 600px;
-        	background: url(images/clock/clockface.jpg);
+        	background: url(images/clock/Clock3wo-border-black.png);
         	list-style: none;
 				-webkit-transform: scale(0.5,0.5); /* Safari */
 				transform: scale(0.5,0.5);
@@ -39,7 +39,7 @@
         #sec {
         	background: url(images/clock/sechand.png);
         	z-index: 1;
-        	opacity: 0.2;
+        	opacity: 0.35;
            	}
         #sec img
         {
@@ -63,7 +63,11 @@
     </style>
     
     <script src="vendor/CSS3Clock/script.js" type="text/javascript"></script>
-    <!-- https://css-tricks.com/css3-clock/ -->
+    <!--
+    https://css-tricks.com/css3-clock/
+	http://freedesignfile.com/40901-different-clock-design-vector-03/
+		Creative Commons (Attribution 3.0)
+	-->
 
 </head>
 
