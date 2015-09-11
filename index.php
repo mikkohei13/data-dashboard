@@ -16,12 +16,16 @@
         }
         
         #clock {
-        	position: relative;
+        	position: absolute;
+        		top: -150px;
+        		left: -150px;
         	width: 600px;
         	height: 600px;
-        	margin: 20px auto 0 auto;
         	background: url(images/clock/clockface.jpg);
         	list-style: none;
+				-webkit-transform: scale(0.5,0.5); /* Safari */
+				transform: scale(0.5,0.5);
+
         	}
         
         #sec, #min, #hour {
