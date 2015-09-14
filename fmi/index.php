@@ -10,7 +10,16 @@ $url = "http://data.fmi.fi/fmi-apikey/" . $apiKey . "/wfs?request=getFeature&sto
 $xmlString = file_get_contents($url);
 
 $xml = simplexml_load_string($xmlString);
+$namespaces = $xml->getNameSpaces(true);
 
-print_r ($xml); // debug
+print_r ($namespaces); // debug
+
+$i = 0;
+
+$wfs = $xml->children($namespaces['wfs']);
+
+print_r ($wfs); // debug
+
+
 
 ?>
