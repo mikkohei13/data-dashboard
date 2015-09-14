@@ -16,6 +16,16 @@ $xml = simplexml_load_string($xmlString);
 
 foreach($xml->wfs_member as $member)
 {
+	// Time
+	$timeRaw = $member->omso_ProfileObservation->om_resultTime->gml_TimeInstant->gml_timePosition;
+	$timeRaw = str_replace("_", ":", $timeRaw); // includes timezone
+
+	$datetime = new DateTime($timeRaw);
+	$helsinkiTime = new DateTimeZone('Europe/Helsinki');
+	$datetime->setTimezone($helsinkiTime);
+//	echo $datetime->format('Y-m-d H.i.s'); // debug
+
+	// Measurements
 	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
 	$att = $multiPointCoverage->attributes();
 
@@ -30,13 +40,21 @@ foreach($xml->wfs_member as $member)
 		$measurementsStrings = trim($measurementsStrings);
 		$measurements = explode(" ", $measurementsStrings);
 
-		break;
+		foreach ($heights as $nro => $height)
+		{
+			echo "x";
+			$tuples[$height] = $measurements[$nro];
+		}
 	}
+
 
 }
 
-print_r ($heights); // debug
-print_r ($measurements); // debug
+// Results debug
+echo $datetime->format('Y-m-d H.i.s');
+print_r ($heights);
+print_r ($measurements);
+print_r ($tuples);
 
 
 
