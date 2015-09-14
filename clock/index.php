@@ -6,7 +6,7 @@
 
         	width: 600px;
         	height: 600px;
-        	background: url(clock/images/Clock3wo-border-black.png);
+        	background: url(clock/images/clockface.png);
         	list-style: none;
 				-webkit-transform: scale(0.5,0.5); /* Safari */
 				transform: scale(0.5,0.5);
