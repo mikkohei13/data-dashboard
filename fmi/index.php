@@ -19,19 +19,25 @@ foreach($xml->wfs_member as $member)
 	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
 	$att = $multiPointCoverage->attributes();
 
-	if ($att['gml_id'] == "mpcv1-1")
+	if ($att['gml_id'] == "mpcv1-1") // temperature
 	{
-		echo "jee!";
+		echo "Getting temp";
+		$heightsString = $multiPointCoverage->gml_domainSet->gmlcov_SimpleMultiPoint->gmlcov_positions;
+		$heightsString = trim($heightsString);
+		$heights = explode(" ", $heightsString);
+
+		$measurementsStrings = $multiPointCoverage->gml_rangeSet->gml_DataBlock->gml_doubleOrNilReasonTupleList;
+		$measurementsStrings = trim($measurementsStrings);
+		$measurements = explode(" ", $measurementsStrings);
+
+		break;
 	}
-	else
-	{
-		echo "buu!";
-	}
-	print_r ($att['gml_id']);
-	exit("\nEND");
+
 }
 
-//print_r ($array); // debug
+print_r ($heights); // debug
+print_r ($measurements); // debug
+
 
 
 ?>
