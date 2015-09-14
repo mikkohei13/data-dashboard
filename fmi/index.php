@@ -7,27 +7,29 @@ include_once "../../api-key.php";
 
 $url = "http://data.fmi.fi/fmi-apikey/" . $apiKey . "/wfs?request=getFeature&storedquery_id=fmi::observations::weather::mast::multipointcoverage&fmisid=101000&timestep=10&";
 
-$xmlString = file_get_contents($url);
+$xmlStringWithNamespaces = file_get_contents($url);
+$xmlString = str_replace(":", "_", $xmlStringWithNamespaces);
 
-// http://www.ohjelmointiputka.net/keskustelu/27950-php-ja-ilmatieteen-laitoksen-avoin-data/sivu-1
+//echo $xmlString;
 
-$dom = new DomDocument();
-$dom->loadXML($xmlString);
+$xml = simplexml_load_string($xmlString);
 
-$mittaukset = $dom->getElementsByTagNameNS("http://www.opengis.net/wfs/2.0", "member");
+foreach($xml->wfs_member as $member)
+{
+	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
+	$att = $multiPointCoverage->attributes();
 
-foreach ($mittaukset as $m)
+	if ($att['gml_id'] == "mpcv1-1")
 	{
-	echo "<li> uusi mittaus alkaa";
-	$results = $m->getElementsByTagNameNS("http://www.opengis.net/om/2.0", "result");
-	foreach ($results as $r) {
-		echo "<li> uusi tulos alkaa";
-		echo "<li> aika: " . $r->getElementsByTagName("time")->item(0)->nodeValue;
-		echo "<li> arvo: " . $r->getElementsByTagName("value")->item(0)->nodeValue;
+		echo "jee!";
 	}
+	else
+	{
+		echo "buu!";
+	}
+	print_r ($att['gml_id']);
+	exit("\nEND");
 }
-
-http://www.opengis.net/gmlcov/1.0
 
 //print_r ($array); // debug
 
