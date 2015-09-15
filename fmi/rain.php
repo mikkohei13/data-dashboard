@@ -76,8 +76,8 @@ for ($y=150; $y <= 349; $y++)
 //	echo "row $y / masterIndex: " . ($masterIndex / $divider) . "<br />\n";
 }
 
-echo "<div class=\"widget\" id=\"rain\">
-Rain index: <span>" . round(($masterIndex / $divider), 0) . "</span>
+echo "<div class=\"widget\" id=\"d-rain\">
+<span class=\"label\">Rain:</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>
 </div>";
 
 

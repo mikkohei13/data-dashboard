@@ -5,57 +5,58 @@ include_once "mast-fetch.php";
 ?>
 
 <style>
-#mast
+#d-mast
 {
 /*	border: 1px solid blue; */
 	position: relative;
-	height: 400px;
+	height: 550px;
 }
-#mast div
+#d-mast div
 {
 	padding: 2px;
-	background-color: #eee;
 	position: absolute;
 }
 .TA
 {
-	left: 0px;
+	right: 0px;
 }
 .RH
 {
-	left: 60px;
+	right: 130px;
 }
 .WS
 {
-	left: 120px;
+	right: 240px;
 }
 .WD
 {
-	left: 180px;
+	right: 400px;
 	font-size: 120%;
 }
 </style>
 
-<div class="widget" id="mast">
+<div class="widget" id="d-mast">
 	<?php
+
+	$scale = 1.5;
 
 	foreach ($measurements['TA'] as $h => $t)
 	{
-		echo "<div class=\"TA\" style=\"bottom: " . $h . "px;\">$t &deg;C</div>";
+		echo "<div class=\"TA\" style=\"bottom: " . $h*$scale . "px;\"><span class=\"value\">$t</span><span class=\"unit\">&deg;C</span></div>";
 	}
 	foreach ($measurements['RH'] as $h => $t)
 	{
 		$t = round($t, 0);
-		echo "<div class=\"RH\" style=\"bottom: " . $h . "px;\">$t %</div>";
+		echo "<div class=\"RH\" style=\"bottom: " . $h*$scale . "px;\"><span class=\"value\">$t</span><span class=\"unit\">%</span></div>";
 	}
 	foreach ($measurements['WS'] as $h => $t)
 	{
-		echo "<div class=\"WS\" style=\"bottom: " . $h . "px;\">$t m/s</div>";
+		echo "<div class=\"WS\" style=\"bottom: " . $h*$scale . "px;\"><span class=\"value\">$t</span><span class=\"unit\">m/s</span></div>";
 	}
 	foreach ($measurements['WD'] as $h => $t)
 	{
 		$t = $t + 180;
-		echo "<div class=\"WD\" style=\"bottom: " . $h . "px; -webkit-transform: rotate(" . $t . "deg);\">&#8593;</div>";
+		echo "<div class=\"WD\" style=\"bottom: " . $h*$scale . "px; -webkit-transform: rotate(" . $t . "deg);\"><span class=\"value\">&#8593;</span></div>";
 	}
 
 /*
@@ -68,4 +69,4 @@ include_once "mast-fetch.php";
 	?>
 </div>
 <?php
-echo $datetime->format('Y-m-d H.i.s');
+//echo $datetime->format('Y-m-d H.i.s');

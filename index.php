@@ -9,26 +9,32 @@
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
     
     <style type="text/css">
-        * {
+        *
+        {
         	margin: 0;
         	padding: 0;
         	background-color: #000;
             color: #fff;
+            font-size: 40px;
+            font-family: Helvetica;
         }
            	
-        p {
-            text-align: center; 
-            padding: 10px 0 0 0;
-            }
+        #main
+        {
+            width: 1024px;
+            height: 768px;
+            position: relative;
+                border: 1px solid red;
+        }
 
         .widget
         {
             border: 1px solid cyan;
+            position: absolute;
         }
 
         #d-clock
         {
-            position: absolute;
             top: -150px; /* positioned this way because scaling leaves empty margins */
             left: -150px;
             z-index: 50;
@@ -36,10 +42,23 @@
 
         #d-rain
         {
-
+            bottom: 0;
         }
 
         #d-mast
+        {
+            right: 0;
+        }
+
+        .unit
+        {
+            color: #666;
+        }
+        .label
+        {
+            color: #999;
+        }
+        .value
         {
 
         }
@@ -49,10 +68,12 @@
 
 <body>
 
-<?php include_once "clock/index.php"; ?>
-<?php include_once "fmi/mast.php"; ?>
-<?php include_once "fmi/rain.php"; ?>
-	
+<div id="main">
+    <?php include_once "clock/index.php"; ?>
+    <?php include_once "fmi/mast.php"; ?>
+    <?php include_once "fmi/rain.php"; ?>
+</div>
+
 </body>
 	
 </html>
