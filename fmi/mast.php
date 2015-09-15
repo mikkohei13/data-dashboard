@@ -53,18 +53,24 @@ foreach($xml->wfs_member as $member)
 		}
 	}
 	*/
-
-	break;
 }
 
 function parseMember($member)
 {
+	// Codes
+	$code['mpcv1-1'] = "temperature";
+	$code['mpcv1-2'] = "humidity";
+
 	// Measurements
 	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
+
 	$att = $multiPointCoverage->attributes();
+	$id = (string) $att['gml_id'];
+
+//	exit($id);
 
 	// Temperature and height
-	if ($att['gml_id'] == "mpcv1-1")
+	if (isset($code[$id]))
 	{
 		$heightsString = $multiPointCoverage->gml_domainSet->gmlcov_SimpleMultiPoint->gmlcov_positions;
 		$heightsString = trim($heightsString);
@@ -77,12 +83,16 @@ function parseMember($member)
 		foreach ($heights as $nro => $height)
 		{
 			echo "x";
-			$heightTuples[$height] = $measurements[$nro];
+			$tuples[$height] = $measurements[$nro];
 		}
-	}
 
-	$ret['temperature'] = $heightTuples;
-	return $ret;
+		$ret[$code[$id]] = $tuples;
+		return $ret;
+	}
+	else
+	{
+		return Array();
+	}
 }
 
 // Results debug
