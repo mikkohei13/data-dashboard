@@ -15,6 +15,7 @@ $xmlString = str_replace(":", "_", $xmlStringWithNamespaces);
 $xml = simplexml_load_string($xmlString);
 
 $datetime = FALSE;
+$measurements = Array();
 
 foreach($xml->wfs_member as $member)
 {
@@ -31,6 +32,33 @@ foreach($xml->wfs_member as $member)
 	//	echo $datetime->format('Y-m-d H.i.s'); // debug
 	}
 
+	$measurements = array_merge($measurements, parseMember($member));
+
+	// Humidity and height
+	/*
+	elseif ($att['gml_id'] == "mpcv1-2")
+	{
+		$heightsString = $multiPointCoverage->gml_domainSet->gmlcov_SimpleMultiPoint->gmlcov_positions;
+		$heightsString = trim($heightsString);
+		$heights = explode(" ", $heightsString);
+
+		$measurementsStrings = $multiPointCoverage->gml_rangeSet->gml_DataBlock->gml_doubleOrNilReasonTupleList;
+		$measurementsStrings = trim($measurementsStrings);
+		$measurements = explode(" ", $measurementsStrings);
+
+		foreach ($heights as $nro => $height)
+		{
+			echo "x";
+			$humidityTuples[$height] = $measurements[$nro];
+		}
+	}
+	*/
+
+	break;
+}
+
+function parseMember($member)
+{
 	// Measurements
 	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
 	$att = $multiPointCoverage->attributes();
@@ -52,35 +80,16 @@ foreach($xml->wfs_member as $member)
 			$heightTuples[$height] = $measurements[$nro];
 		}
 	}
-	// Temperature and height
-	elseif ($att['gml_id'] == "mpcv1-2")
-	{
-		$heightsString = $multiPointCoverage->gml_domainSet->gmlcov_SimpleMultiPoint->gmlcov_positions;
-		$heightsString = trim($heightsString);
-		$heights = explode(" ", $heightsString);
 
-		$measurementsStrings = $multiPointCoverage->gml_rangeSet->gml_DataBlock->gml_doubleOrNilReasonTupleList;
-		$measurementsStrings = trim($measurementsStrings);
-		$measurements = explode(" ", $measurementsStrings);
-
-		foreach ($heights as $nro => $height)
-		{
-			echo "x";
-			$humidityTuples[$height] = $measurements[$nro];
-		}
-	}
-
-
-
-
+	$ret['temperature'] = $heightTuples;
+	return $ret;
 }
 
 // Results debug
 echo $datetime->format('Y-m-d H.i.s');
-print_r ($heights);
+
 print_r ($measurements);
-print_r ($heightTuples);
-print_r ($humidityTuples);
+
 
 
 
