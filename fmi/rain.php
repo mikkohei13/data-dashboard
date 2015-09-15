@@ -47,9 +47,10 @@ for ($y=150; $y <= 349; $y++)
 
 		imagesetpixel ( $im , $x , $y , $color );
 	}
-	echo "row $y / masterIndex: " . $masterIndex . "<br />\n";
+//	echo "row $y / masterIndex: " . ($masterIndex / 1000) . "<br />\n";
 }
 
+echo "Rain index: " . round(($masterIndex / 1000), 0) . "<br />\n";
 
 
 function add2index($rgb)
@@ -67,5 +68,7 @@ function add2index($rgb)
 	//		print_r ($rgb);
 
 }
+
+
 
 ?>
