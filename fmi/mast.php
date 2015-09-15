@@ -58,8 +58,12 @@ foreach($xml->wfs_member as $member)
 function parseMember($member)
 {
 	// Codes
-	$code['mpcv1-1'] = "temperature";
-	$code['mpcv1-2'] = "humidity";
+	$code['mpcv1-1'] = "TA";
+	$code['mpcv1-2'] = "RH";
+	$code['mpcv1-3'] = "TD";
+	$code['mpcv1-4'] = "WS";
+	$code['mpcv1-5'] = "WD";
+	$code['mpcv1-6'] = "WG";
 
 	// Measurements
 	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;

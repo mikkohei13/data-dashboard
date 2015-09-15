@@ -25,7 +25,7 @@ include "mast.php";
 <div id="box">
 	<?php
 
-	foreach ($tuples as $h => $t)
+	foreach ($measurements['TA'] as $h => $t)
 	{
 		echo "<div style=\"bottom: " . $h . "px; width: " . $t*5 . "px;\">$t</div>";
 	}
