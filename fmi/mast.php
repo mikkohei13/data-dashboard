@@ -20,6 +20,7 @@ foreach($xml->wfs_member as $member)
 	$timeRaw = $member->omso_ProfileObservation->om_resultTime->gml_TimeInstant->gml_timePosition;
 	$timeRaw = str_replace("_", ":", $timeRaw); // includes timezone
 
+	date_default_timezone_set('Europe/Helsinki');
 	$datetime = new DateTime($timeRaw);
 	$helsinkiTime = new DateTimeZone('Europe/Helsinki');
 	$datetime->setTimezone($helsinkiTime);
