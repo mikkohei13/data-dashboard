@@ -77,9 +77,9 @@ function parseMember($member)
 }
 
 // Results debug
-echo $datetime->format('Y-m-d H.i.s');
+//echo $datetime->format('Y-m-d H.i.s');
 
-print_r ($measurements);
+//print_r ($measurements); // debug
 
 
 
