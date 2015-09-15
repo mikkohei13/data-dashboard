@@ -76,7 +76,9 @@ for ($y=150; $y <= 349; $y++)
 //	echo "row $y / masterIndex: " . ($masterIndex / $divider) . "<br />\n";
 }
 
-echo "Rain index: " . round(($masterIndex / $divider), 0) . "<br />\n";
+echo "<div class=\"widget\" id=\"rain\">
+Rain index: <span>" . round(($masterIndex / $divider), 0) . "</span>
+</div>";
 
 
 function add2index($rgb)

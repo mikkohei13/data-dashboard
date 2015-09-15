@@ -1,4 +1,9 @@
 <div id="d-clock" class="widget">
+    <!--
+    https://css-tricks.com/css3-clock/
+    http://freedesignfile.com/40901-different-clock-design-vector-03/
+        Creative Commons (Attribution 3.0)
+    -->
 
     <style type="text/css">
        

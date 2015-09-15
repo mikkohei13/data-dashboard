@@ -1,87 +1,71 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
 
-include_once "../../api-key.php";
-
-$url = "http://data.fmi.fi/fmi-apikey/" . $apiKey . "/wfs?request=getFeature&storedquery_id=fmi::observations::weather::mast::multipointcoverage&fmisid=101000&timestep=10&";
-
-$xmlStringWithNamespaces = file_get_contents($url);
-$xmlString = str_replace(":", "_", $xmlStringWithNamespaces);
-
-//echo $xmlString;
-
-$xml = simplexml_load_string($xmlString);
-
-$datetime = FALSE;
-$measurements = Array();
-
-foreach($xml->wfs_member as $member)
-{
-	// Time
-	if ($datetime === FALSE)
-	{
-		$timeRaw = $member->omso_ProfileObservation->om_resultTime->gml_TimeInstant->gml_timePosition;
-		$timeRaw = str_replace("_", ":", $timeRaw); // includes timezone
-
-		date_default_timezone_set('Europe/Helsinki');
-		$datetime = new DateTime($timeRaw);
-		$helsinkiTime = new DateTimeZone('Europe/Helsinki');
-		$datetime->setTimezone($helsinkiTime);
-	}
-
-	$measurements = array_merge($measurements, parseMember($member));
-
-}
-
-function parseMember($member)
-{
-	// Codes
-	$code['mpcv1-1'] = "TA";
-	$code['mpcv1-2'] = "RH";
-	$code['mpcv1-3'] = "TD";
-	$code['mpcv1-4'] = "WS";
-	$code['mpcv1-5'] = "WD";
-	$code['mpcv1-6'] = "WG";
-
-	// Measurements
-	$multiPointCoverage = $member->omso_ProfileObservation->om_result->gmlcov_MultiPointCoverage;
-
-	$att = $multiPointCoverage->attributes();
-	$id = (string) $att['gml_id'];
-
-//	exit($id);
-
-	// Temperature and height
-	if (isset($code[$id]))
-	{
-		$heightsString = $multiPointCoverage->gml_domainSet->gmlcov_SimpleMultiPoint->gmlcov_positions;
-		$heightsString = trim($heightsString);
-		$heights = explode(" ", $heightsString);
-
-		$measurementsStrings = $multiPointCoverage->gml_rangeSet->gml_DataBlock->gml_doubleOrNilReasonTupleList;
-		$measurementsStrings = trim($measurementsStrings);
-		$measurements = explode(" ", $measurementsStrings);
-
-		foreach ($heights as $nro => $height)
-		{
-			$tuples[$height] = $measurements[$nro];
-		}
-
-		$ret[$code[$id]] = $tuples;
-		return $ret;
-	}
-	else
-	{
-		return Array();
-	}
-}
-
-// Results debug
-//echo $datetime->format('Y-m-d H.i.s');
-
-//print_r ($measurements); // debug
-
-
-
+include_once "mast-fetch.php";
 
 ?>
+
+<style>
+#mast
+{
+/*	border: 1px solid blue; */
+	position: relative;
+	height: 400px;
+}
+#mast div
+{
+	padding: 2px;
+	background-color: #eee;
+	position: absolute;
+}
+.TA
+{
+	left: 0px;
+}
+.RH
+{
+	left: 60px;
+}
+.WS
+{
+	left: 120px;
+}
+.WD
+{
+	left: 180px;
+	font-size: 120%;
+}
+</style>
+
+<div class="widget" id="mast">
+	<?php
+
+	foreach ($measurements['TA'] as $h => $t)
+	{
+		echo "<div class=\"TA\" style=\"bottom: " . $h . "px;\">$t &deg;C</div>";
+	}
+	foreach ($measurements['RH'] as $h => $t)
+	{
+		$t = round($t, 0);
+		echo "<div class=\"RH\" style=\"bottom: " . $h . "px;\">$t %</div>";
+	}
+	foreach ($measurements['WS'] as $h => $t)
+	{
+		echo "<div class=\"WS\" style=\"bottom: " . $h . "px;\">$t m/s</div>";
+	}
+	foreach ($measurements['WD'] as $h => $t)
+	{
+		$t = $t + 180;
+		echo "<div class=\"WD\" style=\"bottom: " . $h . "px; -webkit-transform: rotate(" . $t . "deg);\">&#8593;</div>";
+	}
+
+/*
+	foreach ($measurements['TA'] as $h => $t)
+	{
+		echo "<div style=\"bottom: " . $h . "px; width: " . $t*5 . "px;\">$t</div>";
+	}
+*/
+
+	?>
+</div>
+<?php
+echo $datetime->format('Y-m-d H.i.s');

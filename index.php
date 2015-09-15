@@ -13,6 +13,7 @@
         	margin: 0;
         	padding: 0;
         	background-color: #000;
+            color: #fff;
         }
            	
         p {
@@ -25,26 +26,32 @@
             border: 1px solid cyan;
         }
 
-        
         #d-clock
         {
             position: absolute;
             top: -150px; /* positioned this way because scaling leaves empty margins */
             left: -150px;
+            z-index: 50;
+        }
+
+        #d-rain
+        {
+
+        }
+
+        #d-mast
+        {
+
         }
     </style>
     
-    <!--
-    https://css-tricks.com/css3-clock/
-	http://freedesignfile.com/40901-different-clock-design-vector-03/
-		Creative Commons (Attribution 3.0)
-	-->
-
 </head>
 
 <body>
 
 <?php include_once "clock/index.php"; ?>
+<?php include_once "fmi/mast.php"; ?>
+<?php include_once "fmi/rain.php"; ?>
 	
 </body>
 	
