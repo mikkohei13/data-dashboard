@@ -1,3 +1,6 @@
+<?php
+header('Content-Type: text/html; charset=utf-8');
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -15,7 +18,7 @@
         	padding: 0;
         	background-color: #000;
             color: #fff;
-            font-size: 40px;
+            font-size: 30px;
             font-family: Helvetica;
         }
            	
@@ -23,6 +26,7 @@
         {
             width: 1024px;
             height: 768px;
+                height: 590px; /* Testing on Mac */
             position: relative;
                 border: 1px solid red;
         }
