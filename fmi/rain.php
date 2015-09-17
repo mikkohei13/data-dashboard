@@ -19,6 +19,7 @@ $indexValues['5-205-170'] = 10;
 $indexValues['10-155-225'] = 4;
 
 $masterIndex = 0;
+$masterCover = 0;
 
 $divider = 100;
 
@@ -60,6 +61,7 @@ if (isset($_GET['debug']))
 	}
 }
 
+$allCover = 200 * 200;
 
 for ($y=150; $y <= 349; $y++)
 { 
@@ -77,7 +79,8 @@ for ($y=150; $y <= 349; $y++)
 }
 
 echo "<div class=\"widget\" id=\"d-rain\">
-<span class=\"label\">Rain:</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>
+ <span class=\"label\">Rain index:</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>,
+ <span class=\"label\">cover:</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span>
 </div>";
 
 
@@ -85,12 +88,14 @@ function add2index($rgb)
 {
 	global $indexValues;
 	global $masterIndex;
+	global $masterCover;
 
 	$rgbString = $rgb['red'] . "-" . $rgb['green'] . "-" . $rgb['blue'];
 
 	if (@$indexValues[$rgbString] > 0)
 	{
 		$masterIndex = $masterIndex + $indexValues[$rgbString];
+		$masterCover++;
 	}
 
 	//		print_r ($rgb);
