@@ -19,8 +19,15 @@ foreach($xml->channel->item as $train)
 		if ($trainTimeInt > $nowTimeInt)
 		{
 //			echo (string) $train->guid . " ";
-			echo (string) $train->title . " ";
-			echo str_replace(":", ".", $train->etd) . " ";
+			echo "<span class=\"label\">" . (string) $train->title . "</span> ";
+			if ($train->status == 5)
+			{
+				echo "<span class=\"value cancelled\">peruttu</span>";
+			}
+			else
+			{
+				echo "<span class=\"value\">" . str_replace(":", ".", $train->etd) . "</span>";
+			}
 			echo "<br />";			
 		}
 		/*
@@ -31,3 +38,45 @@ foreach($xml->channel->item as $train)
 		*/
 	}
 }
+
+/*
+Notes on API
+status 5 = peruttu
+
+<item>
+<guid isPermaLink="false">H8323
+</guid>
+<category>2
+</category>
+<title>E
+</title>
+<description>Summary
+</description>
+<pubDate>Fri, 18 Sep 2015 08:02:01 +0300
+</pubDate>
+<eta>08:54
+</eta>
+<etd>08:54
+</etd>
+<status>5
+</status>
+<scheduledTime>08:54
+</scheduledTime>
+<scheduledDepartTime>08:54
+</scheduledDepartTime>
+<fromStation>HKI
+</fromStation>
+<toStation>KLH
+</toStation>
+<reasonCode/>
+<lateness>0
+</lateness>
+<completed>1
+</completed>
+<cat>H
+</cat>
+<georss:point>0 0
+</georss:point>
+</item>
+
+*/
