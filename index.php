@@ -12,7 +12,7 @@ header('Content-Type: text/html; charset=utf-8');
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
     
     <style type="text/css">
-        *
+        body
         {
         	margin: 0;
         	padding: 0;
@@ -51,7 +51,12 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-mast
         {
-            right: 0;
+        }
+
+        #d-sun
+        {
+            bottom: 0;
+            left: 300px;
         }
 
         .unit
@@ -76,6 +81,7 @@ header('Content-Type: text/html; charset=utf-8');
     <?php include_once "clock/index.php"; ?>
     <?php include_once "fmi/mast.php"; ?>
     <?php include_once "fmi/rain.php"; ?>
+    <?php include_once "sun/index.php"; ?>
 </div>
 
 </body>

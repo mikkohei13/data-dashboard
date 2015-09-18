@@ -8,8 +8,11 @@ include_once "mast-fetch.php";
 #d-mast
 {
 /*	border: 1px solid blue; */
-	position: relative;
-	height: 550px;
+	position: absolute;
+	right: 0;
+	height: 430px;
+	width: 280px;
+	font-size: 20px;
 }
 #d-mast div
 {
@@ -22,15 +25,15 @@ include_once "mast-fetch.php";
 }
 .RH
 {
-	right: 130px;
+	right: 80px;
 }
 .WS
 {
-	right: 240px;
+	right: 160px;
 }
 .WD
 {
-	right: 400px;
+	right: 240px;
 	font-size: 120%;
 }
 </style>
@@ -38,7 +41,7 @@ include_once "mast-fetch.php";
 <div class="widget" id="d-mast">
 	<?php
 
-	$scale = 1.5;
+	$scale = 1.2;
 
 	foreach ($measurements['TA'] as $h => $t)
 	{

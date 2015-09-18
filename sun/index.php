@@ -20,7 +20,7 @@ $sunset->setTimezone($helsinkiTime);
 $dayLength = gmdate("H", $arr['results']['day_length']) . " <span class=\"unit\">h</span> " . gmdate("m", $arr['results']['day_length']) . " <span class=\"unit\">min</span>";
 
 echo "<div class=\"widget\" id=\"d-sun\">";
-echo " <span class=\"label\">Sunrise:</span> <span class=\"value\">" . $sunrise->format('H.i') . "</span>";
-echo " <span class=\"label\">Sunset:</span> <span class=\"value\">" . $sunset->format('H.i') . "</span>";
-echo " <span class=\"label\">Day Length:</span> <span class=\"value\">" . $dayLength . "</span>";
+echo " <span class=\"label\">Sunrise</span> <span class=\"value\">" . $sunrise->format('G.i') . "</span>";
+echo " &nbsp;<span class=\"label\">set</span> <span class=\"value\">" . $sunset->format('G.i') . "</span>";
+echo " &nbsp;<span class=\"label\">day length</span> <span class=\"value\">" . $dayLength . "</span>";
 echo "</div>";

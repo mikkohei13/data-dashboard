@@ -79,8 +79,8 @@ for ($y=150; $y <= 349; $y++)
 }
 
 echo "<div class=\"widget\" id=\"d-rain\">
- <span class=\"label\">Rain index:</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>,
- <span class=\"label\">cover:</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span>
+ <span class=\"label\">☔ Rain</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>
+ &nbsp;<span class=\"label\">cover</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span><span class=\"unit\">%</span>
 </div>";
 
 
