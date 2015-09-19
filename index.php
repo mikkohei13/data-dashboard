@@ -10,6 +10,7 @@ header('Content-Type: text/html; charset=utf-8');
     <title>Data dashboard</title>
     
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     
     <style type="text/css">
         body
@@ -19,7 +20,7 @@ header('Content-Type: text/html; charset=utf-8');
         	background-color: #000;
             color: #fff;
             font-size: 40px;
-            font-family: Helvetica;
+            font-family: 'Ubuntu Mono', 'Courier New', Courier, monospace, sans-serif;
         }
            	
         #main
