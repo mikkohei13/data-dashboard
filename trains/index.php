@@ -18,6 +18,8 @@ foreach($xml->channel->item as $train)
 {
 	if ($train->toStation == "HKI")
 	{
+
+		// TODO: This comparison doesn't work after midnight with trains leaving before midnight
 		$trainTimeInt = str_replace(":", "", $train->etd); // trim leading zeros?
 		if ($trainTimeInt > $nowTimeInt)
 		{
@@ -46,7 +48,16 @@ echo "</div>";
 
 /*
 Notes on API
+status 1 = normaalitila
 status 5 = peruttu
+
+category = 2
+
+lateness = 0
+
+completed = 1
+
+cat = H
 
 <item>
 <guid isPermaLink="false">H8323
