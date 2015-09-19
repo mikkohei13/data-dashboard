@@ -24,8 +24,8 @@ header('Content-Type: text/html; charset=utf-8');
            	
         #main
         {
-            width: 1024px;
-            height: 768px;
+            width: 976;
+            height: 736;
             position: relative;
 /*                border: 1px solid red; */
         }
