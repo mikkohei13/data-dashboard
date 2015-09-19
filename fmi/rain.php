@@ -61,7 +61,7 @@ if (isset($_GET['debug']))
 	}
 }
 
-$allCover = 200 * 200;
+$allCover = 200 * 200; // defines amount of pixels
 
 for ($y=150; $y <= 349; $y++)
 { 
@@ -70,17 +70,16 @@ for ($y=150; $y <= 349; $y++)
 		$colorIndex = imagecolorat ( $im , $x , $y );
 		$rgb = imagecolorsforindex($im, $colorIndex);
 //		print_r ($rgb);
-
 		add2index($rgb);
-
 		imagesetpixel ( $im , $x , $y , $color );
 	}
 //	echo "row $y / masterIndex: " . ($masterIndex / $divider) . "<br />\n";
 }
 
 echo "<div class=\"widget\" id=\"d-rain\">
- <span class=\"label\">☔ Rain</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . "</span>
+ <span class=\"label\">Rain Σ</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . " </span><span class=\"unit\">dBZ</span>
  &nbsp;<span class=\"label\">cover</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span><span class=\"unit\">%</span>
+ &nbsp;<span class=\"label\">average</span> <span class=\"value\">" . round(($masterIndex / $masterCover), 0) . " </span><span class=\"unit\">dBZ</span>
 </div>";
 
 
