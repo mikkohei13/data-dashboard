@@ -47,6 +47,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-rain
         {
             bottom: 50px;
+            left: 10px;
         }
 
         #d-mast
@@ -56,6 +57,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-sun
         {
             bottom: 0px;
+            left: 10px;
         }
 
         .unit
