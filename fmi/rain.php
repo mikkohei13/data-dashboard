@@ -21,8 +21,6 @@ $indexValues['10-155-225'] = 4;
 $masterIndex = 0;
 $masterCover = 0;
 
-$divider = 100;
-
 // ----------------------
 
 // TODO: more change-tolerant way of getting the file?
@@ -73,13 +71,12 @@ for ($y=150; $y <= 349; $y++)
 		add2index($rgb);
 		imagesetpixel ( $im , $x , $y , $color );
 	}
-//	echo "row $y / masterIndex: " . ($masterIndex / $divider) . "<br />\n";
 }
 
 echo "<div class=\"widget\" id=\"d-rain\">
- <span class=\"label\">Rain Σ</span> <span class=\"value\">" . round(($masterIndex / $divider), 0) . " </span><span class=\"unit\">dBZ</span>
+ <span class=\"label\">Rain Σ</span> <span class=\"value\">" . round(($masterIndex / 1000), 0) . "</span><span class=\"unit\">kdBZ</span>
  &nbsp;<span class=\"label\">cover</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span><span class=\"unit\">%</span>
- &nbsp;<span class=\"label\">average</span> <span class=\"value\">" . round(($masterIndex / $masterCover), 0) . " </span><span class=\"unit\">dBZ</span>
+ &nbsp;<span class=\"label\">average</span> <span class=\"value\">" . round(($masterIndex / $masterCover), 0) . "</span><span class=\"unit\">dBZ</span>
 </div>";
 
 
