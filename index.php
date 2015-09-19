@@ -44,14 +44,16 @@ header('Content-Type: text/html; charset=utf-8');
             z-index: 50;
         }
 
+        #d-trains
+        {
+            bottom: 100px;
+            left: 10px;
+        }
+
         #d-rain
         {
             bottom: 50px;
             left: 10px;
-        }
-
-        #d-mast
-        {
         }
 
         #d-sun
@@ -83,6 +85,7 @@ header('Content-Type: text/html; charset=utf-8');
     <?php include_once "fmi/mast.php"; ?>
     <?php include_once "fmi/rain.php"; ?>
     <?php include_once "sun/index.php"; ?>
+    <?php include_once "trains/index.php"; ?>
 </div>
 
 </body>

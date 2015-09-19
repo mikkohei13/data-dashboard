@@ -11,6 +11,9 @@ $xml = simplexml_load_string($xmlString);
 $nowTimeInt = date("Gi");
 //echo $nowTimeInt;
 
+echo "<div id=\"d-trains\" class=\"widget\">";
+echo "<span class=\"label\">Trains to HEL:</span> ";
+
 foreach($xml->channel->item as $train)
 {
 	if ($train->toStation == "HKI")
@@ -19,16 +22,16 @@ foreach($xml->channel->item as $train)
 		if ($trainTimeInt > $nowTimeInt)
 		{
 //			echo (string) $train->guid . " ";
-			echo "<span class=\"label\">" . (string) $train->title . "</span> ";
+			echo "&nbsp;<span class=\"value\">" . (string) $train->title . " ";
 			if ($train->status == 5)
 			{
-				echo "<span class=\"value cancelled\">peruttu</span>";
+				echo "<span class=\"cancelled\">peruttu</span>";
 			}
 			else
 			{
-				echo "<span class=\"value\">" . str_replace(":", ".", $train->etd) . "</span>";
+				echo "<span class=\"\">" . str_replace(":", ".", $train->etd) . "</span>";
 			}
-			echo "<br />";			
+			echo "</span> ";			
 		}
 		/*
 		else
@@ -38,6 +41,8 @@ foreach($xml->channel->item as $train)
 		*/
 	}
 }
+
+echo "</div>";
 
 /*
 Notes on API
