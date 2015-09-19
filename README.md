@@ -8,4 +8,13 @@ Data dashboard that could show
 
 ## TODO
 - Server timezone, so that train timetables are correct
+- S‰‰ nyt
+- S‰‰ennuste
+- Quotes?
 - Unicode arrow 180* turn 
+- Temperature as color?
+- Birds?
+- Remote control / push?
+- Photo??
+- Lajitietokeskus-stats?
+
