@@ -8,6 +8,8 @@ header('Content-Type: text/html; charset=utf-8');
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>Data dashboard</title>
+
+    <meta http-equiv="refresh" content="150">
     
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
