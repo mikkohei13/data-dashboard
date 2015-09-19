@@ -50,28 +50,28 @@ header('Content-Type: text/html; charset=utf-8');
         #d-trains
         {
             bottom: 120px;
-            left: 10px;
+            left: 0px;
         }
 
         #d-rain
         {
             bottom: 60px;
-            left: 10px;
+            left: 0px;
         }
 
         #d-sun
         {
             bottom: 0px;
-            left: 10px;
+            left: 0px;
         }
 
         .unit
         {
-            color: #666;
+            color: #343;
         }
         .label
         {
-            color: #999;
+            color: #9A9;
         }
         .value
         {
