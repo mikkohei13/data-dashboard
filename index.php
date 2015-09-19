@@ -39,8 +39,8 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-clock
         {
-            top: -150px; /* positioned this way because scaling leaves empty margins */
-            left: -150px;
+            top: -190px; /* positioned this way because scaling leaves empty margins */
+            left: -170px;
             z-index: 50;
         }
 
@@ -56,7 +56,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-sun
         {
             bottom: 0;
-            left: 300px;
+            left: 350px;
         }
 
         .unit
