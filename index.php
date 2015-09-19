@@ -26,14 +26,13 @@ header('Content-Type: text/html; charset=utf-8');
         {
             width: 1024px;
             height: 768px;
-                height: 590px; /* Testing on Mac */
             position: relative;
-                border: 1px solid red;
+/*                border: 1px solid red; */
         }
 
         .widget
         {
-            border: 1px solid cyan;
+/*              border: 1px solid cyan; */
             position: absolute;
         }
 
