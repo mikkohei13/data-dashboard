@@ -18,21 +18,21 @@ header('Content-Type: text/html; charset=utf-8');
         	padding: 0;
         	background-color: #000;
             color: #fff;
-            font-size: 30px;
+            font-size: 40px;
             font-family: Helvetica;
         }
            	
         #main
         {
-            width: 976;
-            height: 736;
+            width: 976px;
+            height: 736px;
             position: relative;
 /*                border: 1px solid red; */
         }
 
         .widget
         {
-/*              border: 1px solid cyan; */
+/*              border: 1px solid lime; */
             position: absolute;
         }
 
@@ -45,13 +45,13 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-trains
         {
-            bottom: 100px;
+            bottom: 120px;
             left: 10px;
         }
 
         #d-rain
         {
-            bottom: 50px;
+            bottom: 60px;
             left: 10px;
         }
 
