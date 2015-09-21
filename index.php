@@ -47,6 +47,12 @@ header('Content-Type: text/html; charset=utf-8');
             z-index: 50;
         }
 
+        #d-bus
+        {
+            bottom: 180px;
+            left: 0px;
+        }
+
         #d-trains
         {
             bottom: 120px;
@@ -89,6 +95,7 @@ header('Content-Type: text/html; charset=utf-8');
     <?php include_once "fmi/rain.php"; ?>
     <?php include_once "sun/index.php"; ?>
     <?php include_once "trains/index.php"; ?>
+    <?php include_once "bus/index.php"; ?>
 </div>
 
 </body>

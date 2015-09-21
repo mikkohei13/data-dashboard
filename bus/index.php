@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../api-key-hsl.php";
+require_once "../api-key-hsl.php";
 
 $url = "http://api.reittiopas.fi/hsl/prod/?user=" . $HSLtoken . "&pass=" . $HSLpass . "&request=stop&code=2511204"; // Erik Basse, kohti Helsinkiä
 
@@ -11,8 +11,8 @@ $limit = 4;
 
 //print_r ($arr); exit(); // debug 
 
-echo "<div>";
-echo "<span class=\"label\">Buses to W:</span>";
+echo "<div class=\"widget\" id=\"d-bus\">";
+echo "<span class=\"label\">Buses:</span>";
 
 foreach ($arr[0]['departures'] as $number => $busArr)
 {
