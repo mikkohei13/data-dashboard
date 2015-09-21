@@ -4,6 +4,8 @@ $url = "https://www.vr.fi/cs/Satellite?pagename=VRWeb/vrweb_asemasyote&station=K
 
 $xmlString = file_get_contents($url);
 
+$limit = 4;
+
 //echo $xmlString;
 
 $xml = simplexml_load_string($xmlString);
@@ -13,6 +15,8 @@ $nowTimeInt = date("Gi");
 
 echo "<div id=\"d-trains\" class=\"widget\">";
 echo "<span class=\"label\">Trains:</span> ";
+
+$i = 0;
 
 foreach($xml->channel->item as $train)
 {
@@ -34,6 +38,13 @@ foreach($xml->channel->item as $train)
 				echo "<span class=\"\">" . str_replace(":", ".", $train->etd) . "</span>";
 			}
 			echo "</span> ";			
+
+			$i++;
+			if ($i >= $limit)
+			{
+				break;
+
+			}
 		}
 		/*
 		else
@@ -41,6 +52,7 @@ foreach($xml->channel->item as $train)
 			echo "mennyt juna" . (string) $train->guid;
 		}
 		*/
+
 	}
 }
 
