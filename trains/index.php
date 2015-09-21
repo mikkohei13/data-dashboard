@@ -14,7 +14,7 @@ $nowTimeInt = date("Gi");
 //echo $nowTimeInt;
 
 echo "<div id=\"d-trains\" class=\"widget\">";
-echo "<span class=\"label\">Trains:</span> ";
+echo "<span class=\"label\">Trains</span> ";
 
 $i = 0;
 

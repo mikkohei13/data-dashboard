@@ -12,7 +12,7 @@ $limit = 4;
 //print_r ($arr); exit(); // debug 
 
 echo "<div class=\"widget\" id=\"d-bus\">";
-echo "<span class=\"label\">Buses:</span>";
+echo "<span class=\"label\">Buses</span>";
 
 $i = 0;
 foreach ($arr[0]['departures'] as $number => $busArr)

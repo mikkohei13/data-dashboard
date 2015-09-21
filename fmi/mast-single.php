@@ -9,7 +9,7 @@ include_once "mast-fetch.php";
 </style>
 
 <div class="widget" id="d-mast-single">
-	<span class="label">Latest: 
+	<span class="label">Latest</span> 
 	<?php
 
 	$scale = 1.2;
@@ -33,7 +33,7 @@ include_once "mast-fetch.php";
 	foreach ($measurements['WD'] as $h => $t)
 	{
 		$t = $t + 180;
-		echo "&nbsp;<span class=\"value\" style=\"-webkit-transform: rotate(" . $t . "deg);\">&#8593;</span> ";
+		echo "<strong><span class=\"value\" style=\"-webkit-transform: rotate(" . $t . "deg);\">&#8593;</span></strong> ";
 		break;
 	}
 
@@ -45,7 +45,6 @@ include_once "mast-fetch.php";
 */
 
 	?>
-	</span>
 </div>
 <?php
 //echo $datetime->format('Y-m-d H.i.s');

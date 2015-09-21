@@ -47,29 +47,36 @@ header('Content-Type: text/html; charset=utf-8');
             z-index: 50;
         }
 
-        #d-bus
+        #d-mast-single
         {
-            bottom: 180px;
-            left: 0px;
-        }
-
-        #d-trains
-        {
-            bottom: 120px;
+            bottom: 240px;
             left: 0px;
         }
 
         #d-rain
         {
-            bottom: 60px;
+            bottom: 180px;
             left: 0px;
         }
 
         #d-sun
         {
+            bottom: 120px;
+            left: 0px;
+        }
+
+        #d-bus
+        {
+            bottom: 60px;
+            left: 0px;
+        }
+
+        #d-trains
+        {
             bottom: 0px;
             left: 0px;
         }
+
 
         .unit
         {
@@ -112,6 +119,7 @@ header('Content-Type: text/html; charset=utf-8');
     <?php include_once "sun/index.php"; ?>
     <?php include_once "trains/index.php"; ?>
     <?php include_once "bus/index.php"; ?>
+    <?php include_once "fmi/mast-single.php"; ?>
 
     <img src="fmi/rain.php?image" id="rainmap" />
 </div>
