@@ -12,7 +12,7 @@ $nowTimeInt = date("Gi");
 //echo $nowTimeInt;
 
 echo "<div id=\"d-trains\" class=\"widget\">";
-echo "<span class=\"label\">Trains to HEL:</span> ";
+echo "<span class=\"label\">Trains:</span> ";
 
 foreach($xml->channel->item as $train)
 {
