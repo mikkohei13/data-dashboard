@@ -42,8 +42,8 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-clock
         {
-            top: -190px; /* positioned this way because scaling leaves empty margins */
-            left: -170px;
+            top: -210px; /* positioned this way because scaling leaves empty margins */
+            left: -190px;
             z-index: 50;
         }
 
@@ -83,6 +83,22 @@ header('Content-Type: text/html; charset=utf-8');
         {
 
         }
+
+        #rainmap
+        {
+            position: relative;
+            z-index: 99;
+            width: 300px;
+            height: 254px;
+            left: 260px;
+            top: 10px;
+            border-radius: 10px;
+            /*
+            bottom: 200px;
+            right: 200px;
+                border: 1px solid red;
+            */
+        }
     </style>
     
 </head>
@@ -96,6 +112,8 @@ header('Content-Type: text/html; charset=utf-8');
     <?php include_once "sun/index.php"; ?>
     <?php include_once "trains/index.php"; ?>
     <?php include_once "bus/index.php"; ?>
+
+    <img src="fmi/rain.php?image" id="rainmap" />
 </div>
 
 </body>
