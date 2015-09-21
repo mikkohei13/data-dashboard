@@ -24,7 +24,7 @@ foreach($xml->channel->item as $train)
 		if ($trainTimeInt > $nowTimeInt)
 		{
 //			echo (string) $train->guid . " ";
-			echo "&nbsp;<span class=\"value\">" . (string) $train->title . " ";
+			echo "&nbsp;<span class=\"value\"><strong>" . (string) $train->title . "</strong> ";
 			if ($train->status == 5)
 			{
 				echo "<span class=\"cancelled\">peruttu</span>";

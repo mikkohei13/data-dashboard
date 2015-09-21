@@ -24,7 +24,7 @@ foreach ($arr[0]['departures'] as $number => $busArr)
 
 	$time = substr($busArr['time'], 0, 2) . "." . substr($busArr['time'], 2, 2);
 
-	echo "&nbsp;<span class=\"value\">" . $line . " " . $time . "</span>\n";
+	echo "&nbsp;<span class=\"value\"><strong>" . $line . "</strong> " . $time . "</span>\n";
 
 	$i++;
 	if ($i >= $limit)
