@@ -7,7 +7,7 @@ $url = "http://data.fmi.fi/fmi-apikey/" . $apiKey . "/wfs?request=getFeature&sto
 $xmlStringWithNamespaces = file_get_contents($url);
 $xmlString = str_replace(":", "_", $xmlStringWithNamespaces);
 
-//echo $xmlString;
+//echo $xmlString; // debug
 
 $xml = simplexml_load_string($xmlString);
 
@@ -31,6 +31,8 @@ foreach($xml->wfs_member as $member)
 	$measurements = array_merge($measurements, parseMember($member));
 
 }
+
+//print_r ($measurements); exit("\nEND");
 
 function parseMember($member)
 {
