@@ -23,7 +23,18 @@ foreach ($arr[0]['departures'] as $number => $busArr)
 	$line = substr($busArr['code'], 1, 3);
 	$line = ltrim($line, 0);
 
-	$time = substr($busArr['time'], 0, 2) . "." . substr($busArr['time'], 2, 2);
+	if (strlen($busArr['time']) == 4)
+	{
+		$time = substr($busArr['time'], 0, 2) . "." . substr($busArr['time'], 2, 2);
+	}
+	elseif (strlen($busArr['time']) == 3)
+	{
+		$time = substr($busArr['time'], 0, 1) . "." . substr($busArr['time'], 1, 2);
+	}
+	else
+	{
+		$time = "FOO";
+	}
 
 	echo "&nbsp;<span class=\"value\"><strong>" . $line . "</strong> " . $time . "</span>\n";
 
