@@ -13,7 +13,6 @@ $xml = simplexml_load_string($xmlString);
 $nowTimeInt = date("Gi");
 //echo $nowTimeInt;
 
-echo "<div id=\"d-trains\" class=\"widget\">";
 echo "<span class=\"label\">Trains</span> ";
 
 $i = 0;
@@ -56,7 +55,6 @@ foreach($xml->channel->item as $train)
 	}
 }
 
-echo "</div>";
 
 /*
 Notes on API

@@ -1,4 +1,3 @@
-<div id="d-clock" class="widget">
     <!--
     https://css-tricks.com/css3-clock/
     http://freedesignfile.com/40901-different-clock-design-vector-03/
@@ -55,4 +54,4 @@
 	   	<li id="hour"></li>
 		<li id="min"></li>
 	</ul>
-</div>
+<

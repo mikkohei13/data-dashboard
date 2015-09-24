@@ -38,7 +38,6 @@ include_once "mast-fetch.php";
 }
 </style>
 
-<div class="widget" id="d-mast">
 	<?php
 
 	if (! empty($measurements))
@@ -74,10 +73,8 @@ include_once "mast-fetch.php";
 	else
 	{
 		echo "<!-- Mastohavaintoja ei saatavilla -->";
-		echo "</div>";
 	}
 
 	?>
-</div>
 <?php
 //echo $datetime->format('Y-m-d H.i.s');

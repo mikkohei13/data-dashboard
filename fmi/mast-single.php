@@ -8,7 +8,6 @@ include_once "mast-fetch.php";
 
 </style>
 
-<div class="widget" id="d-mast-single">
 	<span class="label">Latest</span> 
 	<?php
 
@@ -49,10 +48,8 @@ include_once "mast-fetch.php";
 	else
 	{
 		echo "<!-- Mastohavaintoja ei saatavilla -->";
-		echo "</div>";
 	}
 
 	?>
-</div>
 <?php
 //echo $datetime->format('Y-m-d H.i.s');

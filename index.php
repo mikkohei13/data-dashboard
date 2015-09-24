@@ -107,24 +107,48 @@ header('Content-Type: text/html; charset=utf-8');
             */
         }
     </style>
+
+    <script>
+        $.get( "fmi/mast.php", function( data ) {
+          $( "#d-mast" ).html( data );
+        });
+        $.get( "fmi/mast-single.php", function( data ) {
+          $( "#d-mast-single" ).html( data );
+        });
+        $.get( "bus/index.php", function( data ) {
+          $( "#d-bus" ).html( data );
+        });
+        $.get( "sun/index.php", function( data ) {
+          $( "#d-sun" ).html( data );
+        });
+        $.get( "trains/index.php", function( data ) {
+          $( "#d-trains" ).html( data );
+        });
+        $.get( "fmi/rain.php", function( data ) {
+          $( "#d-rain" ).html( data );
+        });
+    </script>
     
 </head>
 
 <body>
 
 <div id="main">
-    <?php include_once "clock/index.php"; ?>
-    <?php include_once "fmi/mast.php"; ?>
-    <?php include_once "fmi/rain.php"; ?>
-    <?php include_once "sun/index.php"; ?>
-    <?php include_once "trains/index.php"; ?>
-    <?php include_once "bus/index.php"; ?>
-    <?php include_once "fmi/mast-single.php"; ?>
 
+    <div class="widget" id="d-mast"></div>
+    <div class="widget" id="d-mast-single"></div>
+    <div class="widget" id="d-bus"></div>
+    <div class="widget" id="d-sun"></div>
+    <div id="d-trains" class="widget"></div>
+    <div class="widget" id="d-rain"></div>
+
+    <div id="d-clock" class="widget">
+        <?php include_once "clock/index.php"; ?>
+    </div>
+    
     <img src="fmi/rain.php?image" id="rainmap" />
 </div>
 
 </body>
-	
 </html>
 

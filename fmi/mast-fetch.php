@@ -1,6 +1,6 @@
 <?php
 
-include_once "../api-key.php";
+include_once "../../api-key.php";
 
 $url = "http://data.fmi.fi/fmi-apikey/" . $apiKey . "/wfs?request=getFeature&storedquery_id=fmi::observations::weather::mast::multipointcoverage&fmisid=101000&timestep=10&";
 

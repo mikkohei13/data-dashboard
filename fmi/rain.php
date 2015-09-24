@@ -73,11 +73,11 @@ for ($y=150; $y <= 349; $y++)
 	}
 }
 
-echo "<div class=\"widget\" id=\"d-rain\">
+echo "
  <span class=\"label\">Rain Σ</span> <span class=\"value\">" . round(($masterIndex / 1000), 0) . "</span><span class=\"unit\">kdBZ</span>
  &nbsp;<span class=\"label\">cover</span> <span class=\"value\">" . round(($masterCover * 100 / $allCover), 0) . "</span><span class=\"unit\">%</span>
  &nbsp;<span class=\"label\">average</span> <span class=\"value\">" . round(($masterIndex / $masterCover), 0) . "</span><span class=\"unit\">dBZ</span>
-</div>";
+";
 
 
 function add2index($rgb)
