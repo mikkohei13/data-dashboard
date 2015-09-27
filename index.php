@@ -80,7 +80,8 @@ header('Content-Type: text/html; charset=utf-8');
 
         .unit
         {
-            color: #343;
+            color: #343; /* too dark */
+            color: #676;
         }
         .label
         {
