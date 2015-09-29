@@ -146,8 +146,9 @@ header('Content-Type: text/html; charset=utf-8');
     <div id="d-clock" class="widget">
         <?php include_once "clock/index.php"; ?>
     </div>
-    
-    <img src="fmi/rain.php?image" id="rainmap" />
+    <?php if (!isset($_GET['public'])) { ?>
+        <img src="fmi/rain.php?image" id="rainmap" />
+    <?php } ?>
 </div>
 
 </body>
