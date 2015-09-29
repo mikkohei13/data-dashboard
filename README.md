@@ -17,3 +17,9 @@ Data dashboard that could show
 - Photo??
 - Lajitietokeskus-stats?
 
+## Credits
+
+- Clock scripts by Toby Pitman https://css-tricks.com/css3-clock/
+- Clockface by Unknown, Creative Commons Attribution 3.0 http://freedesignfile.com/40901-different-clock-design-vector-03/
+- jQuery
+- Open data by FMI, HSL, VR, Sunrise & Sunset
