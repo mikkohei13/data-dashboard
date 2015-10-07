@@ -35,6 +35,12 @@ include_once "mast-fetch.php";
 			echo "&nbsp;<span class=\"value\" $scaleStyle>$t</span><span class=\"unit\">m/s</span> ";
 			break;
 		}
+		foreach ($measurements['WS'] as $h => $t)
+		{
+			$scaleStyle = setScaleStyle($t, "wind");
+			echo "&nbsp;<span class=\"value\" $scaleStyle>" . ms2bof($t) . "</span><span class=\"unit\">BFT</span> ";
+			break;
+		}
 		foreach ($measurements['WD'] as $h => $t)
 		{
 			$t = $t + 180;
@@ -143,3 +149,23 @@ Rainbow colors
 */
 
 }
+
+function ms2bof($ms)
+{
+	if     ($ms < 0.3 ) { $bof = 1; }
+	elseif ($ms < 1.5 ) { $bof = 2; }
+	elseif ($ms < 3.3 ) { $bof = 3; }
+	elseif ($ms < 5.5 ) { $bof = 4; }
+	elseif ($ms < 8 )   { $bof = 5; }
+	elseif ($ms < 10.8 ){ $bof = 6; }
+	elseif ($ms < 13.9 ){ $bof = 7; }
+	elseif ($ms < 17.2 ){ $bof = 8; }
+	elseif ($ms < 20.7 ){ $bof = 9; }
+	elseif ($ms < 24.5 ){ $bof = 10; }
+	elseif ($ms < 28.4 ){ $bof = 11; }
+	elseif ($ms < 32.6 ){ $bof = 12; }
+	else 				{ $bof = 13; }
+
+	return $bof;
+}
+
