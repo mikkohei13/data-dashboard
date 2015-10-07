@@ -49,10 +49,12 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-mast-single
         {
+            font-size: 50px;
             bottom: 240px;
             left: 0px;
+            font-weight: bold;
         }
-
+        
         #d-rain
         {
             bottom: 180px;
