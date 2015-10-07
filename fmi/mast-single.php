@@ -44,7 +44,7 @@ include_once "mast-fetch.php";
 		foreach ($measurements['WD'] as $h => $t)
 		{
 			$t = $t + 180;
-			echo "<strong><span class=\"value\" style=\"-webkit-transform: rotate(" . $t . "deg); display: inline-block;\">&#8593;</span></strong> ";
+			echo "<strong><span class=\"value\" style=\"-webkit-transform: rotate(" . $t . "deg); display: inline-block; font-weight: bold;\">&#8593;</span></strong> ";
 			break;
 		}
 

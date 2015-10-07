@@ -25,16 +25,18 @@ include_once "mast-fetch.php";
 }
 .RH
 {
-	right: 80px;
+	right: 70px;
 }
 .WS
 {
-	right: 160px;
+	right: 120px;
 }
 .WD
 {
-	right: 250px;
-	font-size: 120%;
+	right: 200px;
+	font-size: 140%;
+	font-weight: bold;
+	margin-bottom: -8px;
 }
 </style>
 
@@ -55,7 +57,7 @@ include_once "mast-fetch.php";
 		}
 		foreach ($measurements['WS'] as $h => $t)
 		{
-			echo "<div class=\"WS\" style=\"bottom: " . $h*$scale . "px;\"><span class=\"value\">$t</span> <span class=\"unit\">m/s</span></div>";
+			echo "<div class=\"WS\" style=\"bottom: " . $h*$scale . "px;\"><span class=\"value\">$t</span><span class=\"unit\">m/s</span></div>";
 		}
 		foreach ($measurements['WD'] as $h => $t)
 		{
