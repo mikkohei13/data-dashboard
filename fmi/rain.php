@@ -69,7 +69,7 @@ for ($y=150; $y <= 349; $y++)
 		$rgb = imagecolorsforindex($im, $colorIndex);
 //		print_r ($rgb);
 		add2index($rgb);
-		imagesetpixel ( $im , $x , $y , $color );
+//		imagesetpixel ( $im , $x , $y , $color ); // ??
 	}
 }
 
