@@ -101,7 +101,7 @@ function setScaleStyle($val, $measurement)
 		else 				 { $ret = "ff2102"; }
 	}
 
-	$ret = "style=\"color: #$ret\"";
+	$ret = "style=\"border-bottom: 8px solid #$ret\"";
 	return $ret;
 
 /*
