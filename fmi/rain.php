@@ -66,9 +66,9 @@ if (isset($_GET['image']))
 
 //	$size = getimagesize("testbed-testdata.png"); print_r($size); exit();
 
-	for ($y=1; $y < 508; $y++)
+	for ($y=0; $y < 508; $y++)
 	{ 
-		for ($x=1; $x < 600; $x++)
+		for ($x=0; $x < 600; $x++)
 		{ 
 //			echo "$y $x <br />"; // 508 600
 			$colorIndex = imagecolorat ($im, $x, $y);
