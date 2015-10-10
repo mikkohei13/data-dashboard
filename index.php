@@ -12,6 +12,7 @@ header('Content-Type: text/html; charset=utf-8');
     <meta http-equiv="refresh" content="300">
     
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     
     <style type="text/css">
@@ -50,7 +51,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-mast-single
         {
             font-size: 50px;
-            bottom: 180px;
+            bottom: 240px;
             left: 0px;
             font-weight: bold;
         }
@@ -62,6 +63,20 @@ header('Content-Type: text/html; charset=utf-8');
             left: 0px;
         }
         */
+
+        #d-suncalc
+        {
+            bottom: 180px;
+            left: 0px;
+            border: 1px solid lime;
+                width: 100%;
+        }
+
+        #d-suncalc p
+        {
+            margin: 0;
+        }
+
 
         #d-sun
         {
@@ -162,6 +177,10 @@ header('Content-Type: text/html; charset=utf-8');
 
     <div id="d-clock" class="widget">
         <?php include_once "clock/index.php"; ?>
+    </div>
+
+    <div id="d-suncalc" class="widget">
+        <?php include_once "sun/suncalc.php"; ?>
     </div>
 
     <?php if (!isset($_GET['public'])) { ?>
