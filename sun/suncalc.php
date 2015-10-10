@@ -4,6 +4,8 @@
 &nbsp;<span class="label">day length</span> <span class="value" id="daylength"></span>
 <br />
 <span class="label">noon</span> <span class="value" id="noon"></span>
+&nbsp;<span class="label">night</span> <span class="value" id="night"></span>
+&nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>
 
 <script>
 
@@ -38,6 +40,7 @@ function leadingZero(i) {
 var lat = 60.19;
 var lng = 24.59;
 
+// TIMES
 var times = SunCalc.getTimes(new Date(), lat, lng);
 
 // format times from the Date object
@@ -48,6 +51,8 @@ var dayLengthMillisec =  times.sunset.getTime() - times.sunrise.getTime();
 var dayLengthStr = dhm(dayLengthMillisec);
 
 var noonStr = times.solarNoon.getHours() + '.' + leadingZero(times.solarNoon.getMinutes());
+var nightStr = times.night.getHours() + '.' + leadingZero(times.night.getMinutes());
+var nadirStr = times.nadir.getHours() + '.' + leadingZero(times.nadir.getMinutes());
 
 </script>
 <script>
@@ -56,6 +61,8 @@ $( "#sunrise" ).text( sunriseStr );
 $( "#sunset" ).text( sunsetStr );
 $( "#daylength" ).text( dayLengthStr );
 $( "#noon" ).text( noonStr );
+$( "#night" ).text( nightStr );
+$( "#nadir" ).text( nadirStr );
 
 </script>
 
