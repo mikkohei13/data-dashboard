@@ -1,13 +1,17 @@
 
-<span class="label">Sunrise</span> <span class="value" id="sunrise"></span>
-&nbsp;<span class="label">set</span> <span class="value" id="sunset"></span>
-&nbsp;<span class="label">day length</span> <span class="value" id="daylength"></span>
+<span class="label">Sun</span> <span class="value" id="sunrise"></span>
+<span class="label">&ndash;</span> <span class="value" id="sunset"></span>
+<span class="label">/</span> <span class="value" id="daylength"></span>
 <br />
 <span class="label">noon</span> <span class="value" id="noon"></span>
-&nbsp;<span class="label">night</span> <span class="value" id="night"></span>
-&nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>
-&nbsp;<span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
-&nbsp;<span class="label">azh</span> <span class="value" id="sunazimuth"></span><span class="unit">&deg;</span>
+<!--<span class="label">night</span> <span class="value" id="night"></span>-->
+<!--&nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>-->
+<span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
+<span class="label">azh</span> <span class="value" id="sunazimuth"></span><span class="unit">&deg;</span>
+<strong><span class=\"value\" id="sunazimutharrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
+<span class="label">(</span><span class="value" id="sunazimuthhome"></span><span class="unit">&deg;</span>
+<strong><span class=\"value\" id="sunazimuthhomearrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
+<span class="label">)</span>
 
 <script>
 
@@ -71,6 +75,7 @@ else
 {
 	sunAzimuthStr = sunAzimuth - 180;
 }
+var sunAzimuthHomeStr = sunAzimuthStr -146; // exact estimate: -146,06 
 
 </script>
 <script>
@@ -85,6 +90,11 @@ $( "#nadir" ).text( nadirStr );
 
 $( "#sunaltitude" ).text( sunAltitudeStr );
 $( "#sunazimuth" ).text( sunAzimuthStr );
+$( "#sunazimutharrow" ).css( "-webkit-transform", "rotate(" + sunAzimuthStr + "deg)" );
+
+$( "#sunazimuthhome" ).text( sunAzimuthHomeStr );
+$( "#sunazimuthhomearrow" ).css( "-webkit-transform", "rotate(" + sunAzimuthHomeStr-180 + "deg)" );
+
 
 </script>
 

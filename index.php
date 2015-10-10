@@ -51,7 +51,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-mast-single
         {
             font-size: 50px;
-            bottom: 180px;
+            bottom: 240px;
             left: 0px;
             font-weight: bold;
         }
@@ -68,13 +68,19 @@ header('Content-Type: text/html; charset=utf-8');
         {
             bottom: 120px;
             left: 0px;
-            border: 1px solid lime;
                 width: 100%;
+            line-height: 120%;
         }
 
         #d-suncalc p
         {
             margin: 0;
+        }
+
+        #sunazimutharrow, #sunazimuthhomearrow
+        {
+            display: inline-block;
+            font-weight: bold;
         }
 
         /*
