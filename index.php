@@ -124,7 +124,7 @@ header('Content-Type: text/html; charset=utf-8');
             z-index: 99;
             width: 300px;
             height: 254px;
-            left: 260px;
+            left: 250px;
             top: 10px;
             border-radius: 10px;
             /*
@@ -134,14 +134,28 @@ header('Content-Type: text/html; charset=utf-8');
             */
         }
 
-        #aurora
+        #aurora_hov
         {
             position: absolute;
-            z-index: 99;
-            width: 300px;
-            height: 200px;
+            z-index: 50;
+            width: 200px;
+            height: 150px;
             left: 260px;
             top: 270px;
+                left: 555px;
+                top: 10px;
+            border-radius: 10px;
+        }
+        #aurora_dyn
+        {
+            position: absolute;
+            z-index: 50;
+            width: 200px;
+            height: 150px;
+            left: 260px;
+            top: 270px;
+                left: 555px;
+                top: 160px;
             border-radius: 10px;
         }
     </style>
@@ -194,7 +208,8 @@ header('Content-Type: text/html; charset=utf-8');
 
     <?php if (!isset($_GET['public'])) { ?>
         <img src="fmi/rain.php?image" id="rainmap" />
-        <img src="auroras/index.php" id="aurora" />
+        <img src="auroras/?loc=HOV" id="aurora_hov" />
+        <img src="auroras/?loc=DYN" id="aurora_dyn" />
     <?php } ?>
 </div>
 
