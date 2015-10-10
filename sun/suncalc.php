@@ -9,7 +9,8 @@
 <span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
 <span class="label">azh</span> <span class="value" id="sunazimuth"></span><span class="unit">&deg;</span>
 <strong><span class=\"value\" id="sunazimutharrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
-<span class="label">(</span><span class="value" id="sunazimuthhome"></span><span class="unit">&deg;</span>
+
+<span class="label">(</span>
 <strong><span class=\"value\" id="sunazimuthhomearrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
 <span class="label">)</span>
 
@@ -75,7 +76,7 @@ else
 {
 	sunAzimuthStr = sunAzimuth - 180;
 }
-var sunAzimuthHomeStr = sunAzimuthStr -146; // exact estimate: -146,06 
+var sunAzimuthHomeStr = sunAzimuthStr -56; // exact estimate: -146,06 
 
 </script>
 <script>
@@ -92,8 +93,7 @@ $( "#sunaltitude" ).text( sunAltitudeStr );
 $( "#sunazimuth" ).text( sunAzimuthStr );
 $( "#sunazimutharrow" ).css( "-webkit-transform", "rotate(" + sunAzimuthStr + "deg)" );
 
-$( "#sunazimuthhome" ).text( sunAzimuthHomeStr );
-$( "#sunazimuthhomearrow" ).css( "-webkit-transform", "rotate(" + sunAzimuthHomeStr-180 + "deg)" );
+$( "#sunazimuthhomearrow" ).css( "-webkit-transform", "rotate(" + sunAzimuthHomeStr + "deg)" );
 
 
 </script>
