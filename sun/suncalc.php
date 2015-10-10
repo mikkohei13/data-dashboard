@@ -2,8 +2,8 @@
 <span class="label">Sun</span> <span class="value" id="sunrise"></span>
 <span class="label">&ndash;</span> <span class="value" id="sunset"></span>
 <span class="label">/</span> <span class="value" id="daylength"></span>
+<span class="label">/ noon</span> <span class="value" id="noon"></span>
 <br />
-<span class="label">noon</span> <span class="value" id="noon"></span>
 <!--<span class="label">night</span> <span class="value" id="night"></span>-->
 <!--&nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>-->
 <span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
