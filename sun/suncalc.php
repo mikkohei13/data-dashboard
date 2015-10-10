@@ -6,6 +6,8 @@
 <span class="label">noon</span> <span class="value" id="noon"></span>
 &nbsp;<span class="label">night</span> <span class="value" id="night"></span>
 &nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>
+&nbsp;<span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
+&nbsp;<span class="label">azh</span> <span class="value" id="sunazimuth"></span><span class="unit">&deg;</span>
 
 <script>
 
@@ -54,15 +56,35 @@ var noonStr = times.solarNoon.getHours() + '.' + leadingZero(times.solarNoon.get
 var nightStr = times.night.getHours() + '.' + leadingZero(times.night.getMinutes());
 var nadirStr = times.nadir.getHours() + '.' + leadingZero(times.nadir.getMinutes());
 
+// POSITION
+var sunPosition = SunCalc.getPosition(new Date(), lat, lng);
+var sunAltitudeStr = Math.round(sunPosition.altitude * (180/Math.PI));
+var sunAzimuth = Math.round(sunPosition.azimuth * (180/Math.PI));
+
+// Convert so that North is 0 deg
+var sunAzimuthStr;
+if (sunAzimuth <= 180)
+{
+	sunAzimuthStr = sunAzimuth + 180;
+}
+else
+{
+	sunAzimuthStr = sunAzimuth - 180;
+}
+
 </script>
 <script>
 
+// jQuery
 $( "#sunrise" ).text( sunriseStr );
 $( "#sunset" ).text( sunsetStr );
 $( "#daylength" ).text( dayLengthStr );
 $( "#noon" ).text( noonStr );
 $( "#night" ).text( nightStr );
 $( "#nadir" ).text( nadirStr );
+
+$( "#sunaltitude" ).text( sunAltitudeStr );
+$( "#sunazimuth" ).text( sunAzimuthStr );
 
 </script>
 
