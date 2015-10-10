@@ -2,6 +2,8 @@
 <span class="label">Sunrise</span> <span class="value" id="sunrise"></span>
 &nbsp;<span class="label">set</span> <span class="value" id="sunset"></span>
 &nbsp;<span class="label">day length</span> <span class="value" id="daylength"></span>
+<br />
+<span class="label">noon</span> <span class="value" id="noon"></span>
 
 <script>
 
@@ -25,6 +27,12 @@ function dhm(t){
   return pad(h) +' h ' + pad(m) + ' min';
 }
 
+function leadingZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
 
 
 var lat = 60.19;
@@ -33,11 +41,13 @@ var lng = 24.59;
 var times = SunCalc.getTimes(new Date(), lat, lng);
 
 // format times from the Date object
-var sunriseStr = times.sunrise.getHours() + '.' + times.sunrise.getMinutes();
-var sunsetStr = times.sunset.getHours() + '.' + times.sunset.getMinutes();
+var sunriseStr = times.sunrise.getHours() + '.' + leadingZero(times.sunrise.getMinutes());
+var sunsetStr = times.sunset.getHours() + '.' + leadingZero(times.sunset.getMinutes());
 
 var dayLengthMillisec =  times.sunset.getTime() - times.sunrise.getTime();
 var dayLengthStr = dhm(dayLengthMillisec);
+
+var noonStr = times.solarNoon.getHours() + '.' + leadingZero(times.solarNoon.getMinutes());
 
 </script>
 <script>
@@ -45,6 +55,7 @@ var dayLengthStr = dhm(dayLengthMillisec);
 $( "#sunrise" ).text( sunriseStr );
 $( "#sunset" ).text( sunsetStr );
 $( "#daylength" ).text( dayLengthStr );
+$( "#noon" ).text( noonStr );
 
 </script>
 

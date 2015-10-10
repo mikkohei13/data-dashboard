@@ -51,7 +51,7 @@ header('Content-Type: text/html; charset=utf-8');
         #d-mast-single
         {
             font-size: 50px;
-            bottom: 240px;
+            bottom: 180px;
             left: 0px;
             font-weight: bold;
         }
@@ -66,7 +66,7 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-suncalc
         {
-            bottom: 180px;
+            bottom: 120px;
             left: 0px;
             border: 1px solid lime;
                 width: 100%;
@@ -77,12 +77,13 @@ header('Content-Type: text/html; charset=utf-8');
             margin: 0;
         }
 
-
+        /*
         #d-sun
         {
             bottom: 120px;
             left: 0px;
         }
+        */
 
         #d-bus
         {
@@ -149,9 +150,11 @@ header('Content-Type: text/html; charset=utf-8');
         $.get( "bus/index.php", function( data ) {
           $( "#d-bus" ).html( data );
         });
+        /*
         $.get( "sun/index.php", function( data ) {
           $( "#d-sun" ).html( data );
         });
+        */
         $.get( "trains/index.php", function( data ) {
           $( "#d-trains" ).html( data );
         });
@@ -171,9 +174,9 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="widget" id="d-mast"></div>
     <div class="widget" id="d-mast-single"></div>
     <div class="widget" id="d-bus"></div>
-    <div class="widget" id="d-sun"></div>
+<!--    <div class="widget" id="d-sun"></div>-->
     <div id="d-trains" class="widget"></div>
-    <div class="widget" id="d-rain"></div>
+<!--    <div class="widget" id="d-rain"></div>-->
 
     <div id="d-clock" class="widget">
         <?php include_once "clock/index.php"; ?>
