@@ -9,7 +9,7 @@ header('Content-Type: text/html; charset=utf-8');
     
     <title>Data dashboard</title>
 
-    <meta http-equiv="refresh" content="150">
+    <meta http-equiv="refresh" content="300">
     
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -50,16 +50,18 @@ header('Content-Type: text/html; charset=utf-8');
         #d-mast-single
         {
             font-size: 50px;
-            bottom: 240px;
+            bottom: 180px;
             left: 0px;
             font-weight: bold;
         }
         
+        /*
         #d-rain
         {
             bottom: 180px;
             left: 0px;
         }
+        */
 
         #d-sun
         {
@@ -96,7 +98,7 @@ header('Content-Type: text/html; charset=utf-8');
 
         #rainmap
         {
-            position: relative;
+            position: absolute;
             z-index: 99;
             width: 300px;
             height: 254px;
@@ -108,6 +110,17 @@ header('Content-Type: text/html; charset=utf-8');
             right: 200px;
                 border: 1px solid red;
             */
+        }
+
+        #aurora
+        {
+            position: absolute;
+            z-index: 99;
+            width: 300px;
+            height: 200px;
+            left: 260px;
+            top: 270px;
+            border-radius: 10px;
         }
     </style>
 
@@ -127,9 +140,11 @@ header('Content-Type: text/html; charset=utf-8');
         $.get( "trains/index.php", function( data ) {
           $( "#d-trains" ).html( data );
         });
+        /*
         $.get( "fmi/rain.php", function( data ) {
           $( "#d-rain" ).html( data );
         });
+        */
     </script>
     
 </head>
@@ -148,8 +163,10 @@ header('Content-Type: text/html; charset=utf-8');
     <div id="d-clock" class="widget">
         <?php include_once "clock/index.php"; ?>
     </div>
+
     <?php if (!isset($_GET['public'])) { ?>
         <img src="fmi/rain.php?image" id="rainmap" />
+        <img src="auroras/index.php" id="aurora" />
     <?php } ?>
 </div>
 
