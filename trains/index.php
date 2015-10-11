@@ -34,7 +34,12 @@ foreach($xml->channel->item as $train)
 			}
 			else
 			{
-				echo "<span class=\"\">" . str_replace(":", ".", $train->etd) . "</span>";
+				$class = "";
+				if ((string) $train->etd != (string) $train->scheduledDepartTime)
+				{
+					$class = "late";
+				}
+				echo "<span class=\"$class\">" . str_replace(":", ".", $train->etd) . "</span>";
 			}
 			echo "</span> ";			
 

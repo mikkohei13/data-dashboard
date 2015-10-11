@@ -158,6 +158,11 @@ header('Content-Type: text/html; charset=utf-8');
                 top: 160px;
             border-radius: 10px;
         }
+
+        .cancelled, .late
+        {
+            color: #d00;
+        }
     </style>
 
     <script>
