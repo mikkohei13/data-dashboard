@@ -12,7 +12,6 @@ header('Content-Type: text/html; charset=utf-8');
     <meta http-equiv="refresh" content="300">
     
     <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/mousetrap/mousetrap.min.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     
@@ -164,9 +163,11 @@ header('Content-Type: text/html; charset=utf-8');
         {
             color: #d00;
         }
+
     </style>
 
     <script>
+
         $.get( "fmi/mast.php", function( data ) {
           $( "#d-mast" ).html( data );
         });
@@ -189,18 +190,6 @@ header('Content-Type: text/html; charset=utf-8');
           $( "#d-rain" ).html( data );
         });
         */
-
-        Mousetrap.bind('x', function()
-        {
-            $( "#main" ).hide();
-            console.log('x pressed');
-        });
-        Mousetrap.bind('m', function()
-        {
-            $( "#main" ).show();
-            console.log('m pressed');
-        });
-
 
     </script>
     
