@@ -190,8 +190,15 @@ header('Content-Type: text/html; charset=utf-8');
         });
         */
 
-        Mousetrap.bind('x', function() {
-            console.log('x!');
+        Mousetrap.bind('x', function()
+        {
+            $( "#main" ).hide();
+            console.log('x pressed');
+        });
+        Mousetrap.bind('m', function()
+        {
+            $( "#main" ).show();
+            console.log('m pressed');
         });
 
 
