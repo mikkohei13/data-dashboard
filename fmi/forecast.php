@@ -29,11 +29,21 @@ foreach($xml->wfs_member as $member)
 
 	foreach ($timeseries->wml2_point as $point)
 	{
-		echo (string) $point->wml2_MeasurementTVP->wml2_time . ": ";
+		echo getHour($point->wml2_MeasurementTVP->wml2_time);
+		echo ": ";
 		echo (string) $point->wml2_MeasurementTVP->wml2_value . "<br />";
 	}
 
 
+}
+
+function getHour($time)
+{
+	$time = (string) $time;
+//	2015-10-18T02_00_00Z
+	$parts = explode("T", $time);
+	$hour = substr($parts[1], 0, 2);
+	return $hour;
 }
 
 
