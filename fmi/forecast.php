@@ -16,26 +16,51 @@ $measurements = Array();
 
 date_default_timezone_set('Europe/Helsinki');
 
+$first = TRUE;
 
+echo "<table>";
+// Thing to be forecasted
 foreach($xml->wfs_member as $member)
 {
+	echo "<tr>";
 
 	$timeseries = $member->omso_PointTimeSeriesObservation->om_result->wml2_MeasurementTimeseries;
 
-	$att = $timeseries->attributes();
-	$id = (string) $att['gml_id'];
 
-	echo $id . "<br />";
-
-	foreach ($timeseries->wml2_point as $point)
+//	echo $id . "<br />";
+	// Fix: this assumes that forecast height i in the first dataset
+	if ($first)
 	{
-		echo getHour($point->wml2_MeasurementTVP->wml2_time);
-		echo ": ";
-		echo (string) $point->wml2_MeasurementTVP->wml2_value . "<br />";
+		echo "<td>time</td>";
+	}
+	else
+	{
+		$att = $timeseries->attributes();
+		$id = (string) $att['gml_id'];		
+		echo "<td>" . $id . "</td>";
 	}
 
+	// Hour
+	foreach ($timeseries->wml2_point as $point)
+	{
+		if ($first)
+		{
+			echo "<td>";
+			echo getHour($point->wml2_MeasurementTVP->wml2_time);
+			echo "</td>";
+		}
+		else
+		{
+			echo "<td>";
+			echo (string) $point->wml2_MeasurementTVP->wml2_value . "<br />";
+			echo "</td>";
+		}
+	}
+	$first = FALSE;
 
+	echo "</tr>";
 }
+echo "</table>";
 
 function getHour($time)
 {
