@@ -67,7 +67,7 @@ function getHour($time)
 	$time = (string) $time;
 //	2015-10-18T02_00_00Z
 	$parts = explode("T", $time);
-	$hour = substr($parts[1], 0, 2);
+	$hour = substr($parts[1], 0, 2) + 3; // difference to timezone Z; does this work with daylight saving time?
 	return $hour;
 }
 
