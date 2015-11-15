@@ -13,6 +13,26 @@ include_once "mast-fetch.php";
 
 	$scaleStyle = "";
 
+	if ($_GET['showscale'])
+	{
+		echo "TEMP:<br />";
+		for ($x = -30; $x <= 30; $x++)
+		{
+			$style = setScaleStyle($x, "temp");
+			echo "<p $style>$x</p>";
+		}
+
+		echo "WIND:<br />";
+		for ($x = 0; $x <= 30; $x++)
+		{
+			$style = setScaleStyle($x, "wind");
+			echo "<p $style>$x</p>";
+		}
+
+		end();
+	}
+
+
 	if (! empty($measurements))
 	{
 		$scale = 1.2;
@@ -152,19 +172,19 @@ Rainbow colors
 
 function ms2bof($ms)
 {
-	if     ($ms < 0.3 ) { $bof = 1; }
-	elseif ($ms < 1.5 ) { $bof = 2; }
-	elseif ($ms < 3.3 ) { $bof = 3; }
-	elseif ($ms < 5.5 ) { $bof = 4; }
-	elseif ($ms < 8 )   { $bof = 5; }
-	elseif ($ms < 10.8 ){ $bof = 6; }
-	elseif ($ms < 13.9 ){ $bof = 7; }
-	elseif ($ms < 17.2 ){ $bof = 8; }
-	elseif ($ms < 20.7 ){ $bof = 9; }
-	elseif ($ms < 24.5 ){ $bof = 10; }
-	elseif ($ms < 28.4 ){ $bof = 11; }
-	elseif ($ms < 32.6 ){ $bof = 12; }
-	else 				{ $bof = 13; }
+	if     ($ms < 0.3 ) { $bof = 0; }
+	elseif ($ms < 1.5 ) { $bof = 1; }
+	elseif ($ms < 3.3 ) { $bof = 2; }
+	elseif ($ms < 5.5 ) { $bof = 3; }
+	elseif ($ms < 8 )   { $bof = 4; }
+	elseif ($ms < 10.8 ){ $bof = 5; }
+	elseif ($ms < 13.9 ){ $bof = 6; }
+	elseif ($ms < 17.2 ){ $bof = 7; }
+	elseif ($ms < 20.7 ){ $bof = 8; }
+	elseif ($ms < 24.5 ){ $bof = 9; }
+	elseif ($ms < 28.4 ){ $bof = 10; }
+	elseif ($ms < 32.6 ){ $bof = 11; }
+	else 				{ $bof = 12; }
 
 	return $bof;
 }
