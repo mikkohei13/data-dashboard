@@ -105,7 +105,7 @@ header('Content-Type: text/html; charset=utf-8');
 
         #d-birds
         {
-            bottom: 220px;
+            bottom: 310px;
             left: 0px;
         }
 
