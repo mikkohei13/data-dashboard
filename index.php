@@ -103,6 +103,12 @@ header('Content-Type: text/html; charset=utf-8');
             left: 0px;
         }
 
+        #d-birds
+        {
+            bottom: 220px;
+            left: 0px;
+        }
+
 
         .unit
         {
@@ -190,6 +196,9 @@ header('Content-Type: text/html; charset=utf-8');
           $( "#d-rain" ).html( data );
         });
         */
+        $.get( "linnut-slave/espoolajit.php", function( data ) {
+          $( "#d-birds" ).html( data );
+        });
 
     </script>
     
@@ -204,6 +213,8 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="widget" id="d-bus"></div>
 <!--    <div class="widget" id="d-sun"></div>-->
     <div id="d-trains" class="widget"></div>
+    <div class="widget" id="d-birds"></div>
+
 <!--    <div class="widget" id="d-rain"></div>-->
 
     <div id="d-clock" class="widget">
