@@ -82,7 +82,3 @@ function parseMember($member)
 
 //print_r ($measurements); // debug
 
-
-
-
-?>
