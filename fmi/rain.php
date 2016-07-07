@@ -51,18 +51,22 @@ $testColor = imagecolorallocate($im, 0,0,0);
 //imageline ( $im , 186 , 150 , 385 , 349 , $color ); // 200*200 px diagonal line, centered on Kauklahti
 
 
-
-
 if (isset($_GET['image']))
 {
 	//$color = imagecolorallocate ( $im , 0xFF , 0x00 , 0x00 ); // red
 	$color = imagecolorallocate ( $im , 0xFF , 0xFF , 0xFF ); // white
 
 	// 200*200 px box, centered on Kauklahti
+	/*
 	imageline ( $im , 186 , 150 , 385 , 150 , $color );
 	imageline ( $im , 385 , 150 , 385 , 349 , $color );
 	imageline ( $im , 385 , 349 , 186 , 349 , $color );
 	imageline ( $im , 186 , 349 , 186 , 150 , $color );
+*/
+	
+	// Spot, centered on Kauklahti
+	$spotColor = imagecolorallocate ( $im , 0xFF , 0x00 , 0x00 ); // red
+	imagefilledellipse($im, 286, 250, 6, 6, $spotColor);
 
 //	$size = getimagesize("testbed-testdata.png"); print_r($size); exit();
 
