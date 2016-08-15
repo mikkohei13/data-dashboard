@@ -35,6 +35,11 @@ header('Content-Type: text/html; charset=utf-8');
 	    <span class="addItem" data-item="s-muu">Muu</span>
 	</div>
 
+	<div>
+		<h3>Listalla nyt:</h3>
+		<div id="currentList"></div>
+	</div>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
         <script>
@@ -47,10 +52,25 @@ header('Content-Type: text/html; charset=utf-8');
                 echo "var rootUrl = \"" . $base_url . "\";\n" // http://192.168.56.10/data-dashboard/pk/
             ?>
 
+	        $.get( "api.php", { action: "readlist" }, function( readResponse ) {
+			  	$( "#currentList" ).html(readResponse);
+			    console.log("start: " + readResponse);
+			});
+
+
 			var className = "";
             $( ".addItem" ).click(function() {
               className = $(this).attr('data-item');
 			  logger(className);
+
+  			  $.get( "api.php", { action: "readlist" }, function( readResponse ) {
+  			  	$( "#currentList" ).html(readResponse);
+  			    console.log("current: " + readResponse);
+			  });
+
+
+			  // get data from url
+			  // add content to element
 			});
 
 			/*
@@ -69,7 +89,7 @@ header('Content-Type: text/html; charset=utf-8');
 			//  console.log(window);
 
 			  $.get( "api.php", { action: "add", item: logData }, function( loggerResponse ) {
-			    console.log(loggerResponse);
+			    console.log("added: " + loggerResponse);
 			  });
 			}
         </script>
