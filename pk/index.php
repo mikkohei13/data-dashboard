@@ -16,9 +16,24 @@ header('Content-Type: text/html; charset=utf-8');
     </head>
     <body>
 
-    <span class="addItem" data-item="s-sukat">S sukat</span>
-    <span class="addItem" data-item="v-housut">V housut</span>
+	<div>
+		<h3>Verna</h3>
+	    <span class="addItem" data-item="v-paita">Paita</span>
+	    <span class="addItem" data-item="v-housut">Housut</span>
+	    <span class="addItem" data-item="v-kura">Kuravaate</span>
+	    <span class="addItem" data-item="v-kertsi">Kertsejä</span>
+	    <span class="addItem" data-item="v-paperi">Paperi</span>
+	    <span class="addItem" data-item="v-muu">Muu</span>
+	</div>
 
+	<div>
+		<h3>Silva</h3>
+	    <span class="addItem" data-item="s-paita">Paita</span>
+	    <span class="addItem" data-item="s-housut">Housut</span>
+	    <span class="addItem" data-item="s-kura">Kuravaate</span>
+	    <span class="addItem" data-item="s-paperi">Paperi</span>
+	    <span class="addItem" data-item="s-muu">Muu</span>
+	</div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 

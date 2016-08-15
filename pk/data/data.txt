@@ -1,2 +1,4 @@
 s-sukat
 v-housut
+v-paita
+s-kura
