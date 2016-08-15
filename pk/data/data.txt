@@ -1,4 +1,5 @@
 v-paita
 s-paita
 s-housut
-v-housut
+v-kura
+v-kertsi

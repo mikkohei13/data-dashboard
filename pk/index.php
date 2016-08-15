@@ -52,6 +52,7 @@ header('Content-Type: text/html; charset=utf-8');
                 echo "var rootUrl = \"" . $base_url . "\";\n" // http://192.168.56.10/data-dashboard/pk/
             ?>
 
+            // Load list of items on startup
 	        $.get( "api.php", { action: "readlist" }, function( readResponse ) {
 			  	$( "#currentList" ).html(readResponse);
 			    console.log("start: " + readResponse);
@@ -59,15 +60,11 @@ header('Content-Type: text/html; charset=utf-8');
 
 
 			var className = "";
+
+			// Add item and update list of items
             $( ".addItem" ).click(function() {
               className = $(this).attr('data-item');
 			  logger(className);
-
-  			  $.get( "api.php", { action: "readlist" }, function( readResponse ) {
-  			  	$( "#currentList" ).html(readResponse);
-  			    console.log("current: " + readResponse);
-			  });
-
 
 			  // get data from url
 			  // add content to element
@@ -90,6 +87,13 @@ header('Content-Type: text/html; charset=utf-8');
 
 			  $.get( "api.php", { action: "add", item: logData }, function( loggerResponse ) {
 			    console.log("added: " + loggerResponse);
+
+			    // update list of items
+			    $.get( "api.php", { action: "readlist" }, function( readResponse ) {
+  			  		$( "#currentList" ).html(readResponse);
+  			    	console.log("current: " + readResponse);
+			  	});
+
 			  });
 			}
         </script>
