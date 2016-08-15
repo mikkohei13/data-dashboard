@@ -64,6 +64,15 @@ header('Content-Type: text/html; charset=utf-8');
         }
         */
 
+        #d-pk
+        {
+            bottom: 170px;
+            left: 0px;
+                width: 100%;
+            line-height: 120%;
+            color: yellow;
+        }
+
         #d-suncalc
         {
             bottom: 120px;
@@ -199,6 +208,9 @@ header('Content-Type: text/html; charset=utf-8');
         $.get( "linnut-slave/espoolajit.php", function( data ) {
           $( "#d-birds" ).html( data );
         });
+        $.get( "pk/api.php?action=readstring", function( data ) {
+          $( "#d-pk" ).html( data );
+        });
 
     </script>
     
@@ -211,6 +223,7 @@ header('Content-Type: text/html; charset=utf-8');
     <div class="widget" id="d-mast"></div>
     <div class="widget" id="d-mast-single"></div>
     <div class="widget" id="d-bus"></div>
+    <div class="widget" id="d-pk"></div>
 <!--    <div class="widget" id="d-sun"></div>-->
     <div id="d-trains" class="widget"></div>
     <div class="widget" id="d-birds"></div>
