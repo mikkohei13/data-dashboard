@@ -42,6 +42,10 @@ header('Content-Type: text/html; charset=utf-8');
 		<div id="currentList"></div>
 	</div>
 
+	<div>
+		<span id="reset">Tyhjennä</span>
+	</div>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
         <script>
@@ -67,10 +71,22 @@ header('Content-Type: text/html; charset=utf-8');
             $( ".addItem" ).click(function() {
               className = $(this).attr('data-item');
 			  logger(className);
-
-			  // get data from url
-			  // add content to element
 			});
+
+            // Reset list
+            $( "#reset" ).click(function() {
+			    $.get( "api.php", { action: "reset" }, function( readResponse ) {
+  			    	console.log("reset: " + readResponse);
+
+  					// update list of items
+				    $.get( "api.php", { action: "readlist" }, function( readResponse ) {
+	  			  		$( "#currentList" ).html(readResponse);
+	  			    	console.log("current: " + readResponse);
+				  	});
+
+			  	});
+			});
+
 
 			/*
 

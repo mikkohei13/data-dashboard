@@ -1,8 +1,0 @@
-v-paita
-s-paita
-s-housut
-v-kura
-v-kertsi
-v-kura
-v-muu
-v-muu
