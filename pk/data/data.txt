@@ -1,2 +1,6 @@
 
 sukat
+housut
+paita
+muuta
+paperi

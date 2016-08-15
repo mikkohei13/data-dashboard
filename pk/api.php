@@ -2,7 +2,7 @@
 
 $filename = "data/data.txt";
 
-if ("read" == $_GET['action'])
+if ("readlist" == $_GET['action'])
 {
 	$dataString = file_get_contents($filename);
 	$dataArr = explode("\n", $dataString);
@@ -10,6 +10,18 @@ if ("read" == $_GET['action'])
 	{
 		echo $row . "<br />";
 	}
+}
+if ("readstring" == $_GET['action'])
+{
+	$itemString = "";
+	$dataString = file_get_contents($filename);
+	$dataArr = explode("\n", $dataString);
+	foreach ($dataArr as $nro => $row)
+	{
+		$itemString .= $row . ", ";
+	}
+	$itemString = trim($itemString, ", ");
+	echo $itemString;
 }
 elseif ("reset" == $_GET['action'])
 {
