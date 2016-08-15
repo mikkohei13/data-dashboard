@@ -6,6 +6,9 @@
 <br />
 <!--<span class="label">night</span> <span class="value" id="night"></span>-->
 <!--&nbsp;<span class="label">nadir</span> <span class="value" id="nadir"></span>-->
+
+<!-- Hidden 18.8.2016 -->
+<!--
 <span class="label">alt</span> <span class="value" id="sunaltitude"></span><span class="unit">&deg;</span>
 <span class="label">azh</span> <span class="value" id="sunazimuth"></span><span class="unit">&deg;</span>
 <strong><span class=\"value\" id="sunazimutharrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
@@ -13,6 +16,7 @@
 <span class="label">(</span>
 <strong><span class=\"value\" id="sunazimuthhomearrow" style=\"display: inline-block; font-weight: bold;\">&#8593;</span></strong>
 <span class="label">)</span>
+-->
 
 <script>
 
