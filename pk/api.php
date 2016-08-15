@@ -16,5 +16,12 @@ elseif ("reset" == $_GET['action'])
 	file_put_contents($filename, "");
 	echo "ok";
 }
+elseif ("add" == $_GET['action'])
+{
+	$itemToAdd = $_GET['item'];
+	file_put_contents($filename, ($itemToAdd . "\n"), FILE_APPEND);
+	echo "ok";
+}
+
 
 
