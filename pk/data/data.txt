@@ -1,6 +1,2 @@
-
-sukat
-housut
-paita
-muuta
-paperi
+s-sukat
+v-housut
