@@ -11,4 +11,10 @@ if ("read" == $_GET['action'])
 		echo $row . "<br />";
 	}
 }
+elseif ("reset" == $_GET['action'])
+{
+	file_put_contents($filename, "");
+	echo "ok";
+}
+
 
