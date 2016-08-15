@@ -16,6 +16,8 @@ header('Content-Type: text/html; charset=utf-8');
     </head>
     <body>
 
+    <div id="addedItem"></div>
+
 	<div>
 		<h3>Verna</h3>
 	    <span class="addItem" data-item="v-paita">Paita</span>
@@ -87,6 +89,9 @@ header('Content-Type: text/html; charset=utf-8');
 
 			  $.get( "api.php", { action: "add", item: logData }, function( loggerResponse ) {
 			    console.log("added: " + loggerResponse);
+
+			    // show what was added
+  			 	$( "#addedItem" ).html("Added <strong>" + logData + "</strong>");
 
 			    // update list of items
 			    $.get( "api.php", { action: "readlist" }, function( readResponse ) {
