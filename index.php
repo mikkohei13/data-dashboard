@@ -63,6 +63,7 @@ header('Content-Type: text/html; charset=utf-8');
             left: 0px;
         }
         */
+        
 
         #d-pk
         {
@@ -189,9 +190,12 @@ header('Content-Type: text/html; charset=utf-8');
         $.get( "fmi/mast-single.php", function( data ) {
           $( "#d-mast-single" ).html( data );
         });
+        /*
+        // temporaryly hidden 15.8.2016
         $.get( "bus/index.php", function( data ) {
           $( "#d-bus" ).html( data );
         });
+        */
         /*
         $.get( "sun/index.php", function( data ) {
           $( "#d-sun" ).html( data );

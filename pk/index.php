@@ -13,6 +13,16 @@ header('Content-Type: text/html; charset=utf-8');
         <!--[if lt IE 9]>
             <script src="js/vendor/html5-3.6-respond-1.4.2.min.js"></script>
         <![endif]-->
+        <style>
+        	span {
+        		color: navy;
+        		border: 2px solid navy;
+        		padding: 0.5em;
+        		border-radius: 2px;
+        		cursor: pointer;
+        		line-height: 250%;
+        	}
+        </style>
     </head>
     <body>
 
@@ -20,21 +30,21 @@ header('Content-Type: text/html; charset=utf-8');
 
 	<div>
 		<h3>Verna</h3>
-	    <span class="addItem" data-item="v-paita">Paita</span>
-	    <span class="addItem" data-item="v-housut">Housut</span>
-	    <span class="addItem" data-item="v-kura">Kuravaate</span>
-	    <span class="addItem" data-item="v-kertsi">Kertsejä</span>
-	    <span class="addItem" data-item="v-paperi">Paperi</span>
-	    <span class="addItem" data-item="v-muu">Muu</span>
+	    <span class="addItem" data-item="v-paita" role="button">Paita</span>
+	    <span class="addItem" data-item="v-housut" role="button">Housut</span>
+	    <span class="addItem" data-item="v-kura" role="button">Kuravaate</span>
+	    <span class="addItem" data-item="v-kertsi" role="button">Kertsejä</span>
+	    <span class="addItem" data-item="v-paperi" role="button">Paperi</span>
+	    <span class="addItem" data-item="v-muu" role="button">Muu</span>
 	</div>
 
 	<div>
 		<h3>Silva</h3>
-	    <span class="addItem" data-item="s-paita">Paita</span>
-	    <span class="addItem" data-item="s-housut">Housut</span>
-	    <span class="addItem" data-item="s-kura">Kuravaate</span>
-	    <span class="addItem" data-item="s-paperi">Paperi</span>
-	    <span class="addItem" data-item="s-muu">Muu</span>
+	    <span class="addItem" data-item="s-paita" role="button">Paita</span>
+	    <span class="addItem" data-item="s-housut" role="button">Housut</span>
+	    <span class="addItem" data-item="s-kura" role="button">Kuravaate</span>
+	    <span class="addItem" data-item="s-paperi" role="button">Paperi</span>
+	    <span class="addItem" data-item="s-muu" role="button">Muu</span>
 	</div>
 
 	<div>
@@ -43,7 +53,7 @@ header('Content-Type: text/html; charset=utf-8');
 	</div>
 
 	<div>
-		<span id="reset">Tyhjennä</span>
+		<span id="reset" role="button">Tyhjennä</span>
 	</div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
